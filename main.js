@@ -1,5 +1,5 @@
 const apiUrl = `https://striveschool-api.herokuapp.com/api/product/`
-const apiKey =  `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDM2ZjI1ODMzYjE1MjAwMTQ3NjE3OWIiLCJpYXQiOjE2ODE1ODMyOTQsImV4cCI6MTY4Mjc5Mjg5NH0.umi_YCOqwne8MlazDbKXFPP-MKY0s7fTEfHjg7291qM`
+const apiKey =  `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDNkNDRkMzZhMTllZjAwMTRkNmU0NTEiLCJpYXQiOjE2ODE3MzY5MTUsImV4cCI6MTY4Mjk0NjUxNX0.5jIj6nRgEP_a4Jtm4CLtCxslun_bKaNKtc9rNmuqfY4`
 async function getToken() {
     try{
         const response = await fetch("https://striveschool-api.herokuapp.com/api/product/",{
@@ -8,10 +8,13 @@ async function getToken() {
                 }
         })
         const data = await response.json()
-        prodottiAggiunti = data
-        cardProdact(prodottiAggiunti)
-        tableBody()
-        console.log(data);
+        // prodottiAggiunti = data
+        // cardProdact(prodottiAggiunti)
+        setTimeout(() => {
+            document.querySelector(".spinner-container").classList.add("d-none")
+            cardProdact(data);
+        }, 100)
+        console.log("vedi prodotti ", prodottiAggiunti);
     } 
     catch (error){
         console.log('Errore nel recupero degli utenti: ', error);
@@ -28,20 +31,29 @@ function cardProdact(prodottiAggiunti) {
         col.classList.add('col')
         col.innerHTML = `
         <div class="card shadow-sm">
-            <img src="${element.imageUrl}" class="img-fluid object-fit-fill img-libro rounded-top w-100" alt="foto-libro"/>
-            <div class="card-body">
+            <img src="${element.imageUrl}" class="img-fluid object-fit-fill img-prodotto rounded-top w-100" alt="foto-libro"/>
+            <div class="card-body d-flex justify-content-between">
                 <h5 class="card-title">${element.name}</h5>
+                <i class="heart fa-heart fa-regular "></i>
             </div>
             <ul class="list-group list-group-light list-group-small">
-                <li class="list-group-item px-4 asin">${element.id}</li>
-                <li class="list-group-item px-4 prezzo d-flex justify-content-between">€ ${element.price} 
-                <i class="heart fa-heart fa-regular "></i>
+                <li class="list-group-item px-4 asin">Id : ${element._id}</li>
+                <li class="list-group-item px-4 prezzo fs-3 fw-bold">€ ${element.price} 
                 </li>
-                <li class="list-group-item px-4 category"> ${element.description}</li>
+                <li class="list-group-item px-4 category"> 
+                <h5>Descrizione</h5
+                <span>${element.description}</span>
+                </li>
             </ul>
             <div class="card-body btn-group">
-            <button onclick="addCarrello(event)" class="btn btn-sm btn-outline-secondary btn-carrello">Aggiungi al carrello </button>
-            <button onclick="nascondiCard(event)" class="btn btn-sm btn-outline-secondary btn-nascondi">Nascondi</button>
+            <button onclick="addCarrello(event)" class="btn btn-sm btn-outline-secondary btn-carrello d-flex align-items-center justify-content-center">
+            <i class="me-3 fa-solid fa-cart-plus"></i> 
+            Aggiungi al carrello 
+            </button>
+            <button onclick="nascondiCard(event)" class="btn btn-sm btn-outline-secondary btn-nascondi d-flex align-items-center justify-content-center">
+            <i class=" me-3 fa-solid fa-eye"></i> 
+            Visualizza il prodotto
+            </button>
             </div>
         </div>`
 
@@ -49,4 +61,11 @@ function cardProdact(prodottiAggiunti) {
         
     });
 }
+
+
+function backOffice() {
+    window.location.href = 'formAggiunta.html?status=crea-nuovo-prodotto'
+    
+}
+
 

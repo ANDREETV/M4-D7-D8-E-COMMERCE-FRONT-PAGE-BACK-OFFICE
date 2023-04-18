@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <title>Negozio Alimentari</title>
 </head>
 <body>
 
@@ -17,7 +17,7 @@
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="collapse navbar-collapse d-flex justify-content-between" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="#">Home</a>
@@ -40,10 +40,20 @@
                     <a class="nav-link disabled">Disabled</a>
                 </li>
                 </ul>
-                <form class="d-flex" role="search">
+                <form class="d-flex me-5" role="search">
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                 <button class="btn btn-outline-success" type="submit">Search</button>
                 </form>
+
+
+                <div class="d-flex gap-4 align-items-center pe-5 order-2 order-sm-2">
+                    <i class="fs-4  fa-solid fa-briefcase " onclick="backOffice()"></i>
+                    <button type="button" class="btn-add" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <i class="fs-4 fa-solid fa-cart-shopping"></i>
+                    </button>        
+                    <i class="fs-4 fa-regular fa-heart"></i>
+                    <i class="fs-4 fa-solid fa-user"></i>
+                </div>
             </div>
             </div>
         </nav>
@@ -54,9 +64,15 @@
             <div id="prodotti" class=" row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
 
             </div>
+
+            <div class="spinner-container">
+                <div id="spinner-row" class="spinner-border" role="status">
+                </div>
+            </div>
         </div>
     </main>
 
+    <script src="https://kit.fontawesome.com/c7866b2a0b.js" crossorigin="anonymous"></script>
     <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="main.js"></script>
 </body>

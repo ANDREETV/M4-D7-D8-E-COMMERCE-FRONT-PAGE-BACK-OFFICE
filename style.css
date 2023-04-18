@@ -1,0 +1,21 @@
+.spinner-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40vh;
+}
+
+
+.img-prodotto{
+    height: 300px;
+
+}
+
+.btn-add{
+    background-color: rgb(248, 249, 250);
+    border: 0;
+}
+
+.fa-briefcase{
+    cursor: pointer;
+}
