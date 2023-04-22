@@ -14,7 +14,7 @@ async function getToken() {
         setTimeout(() => {
             document.querySelector('.spinner-container').classList.add("d-none")
             cardProdact(data);
-        }, 3000)
+        }, 3400)
         console.log("vedi prodotti ", data);
     } 
     catch (error){
