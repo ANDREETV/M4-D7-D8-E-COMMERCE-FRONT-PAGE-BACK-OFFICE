@@ -152,7 +152,7 @@ function tableBody(product) {
         <tr>
             <td class="td-body">${element._id}</td>
             <td class="td-body">${element.name}</td>
-            <td class="td-body">${element.description}</td>
+            <td class="td-body"> <p class="descrizione">${element.description}</p></td>
             <td class="td-body">${element.brand}</td>
             <td class="td-body"><p class="td-img">${element.imageUrl}</p></td>
             <td class="td-body">${element.price} € </td>

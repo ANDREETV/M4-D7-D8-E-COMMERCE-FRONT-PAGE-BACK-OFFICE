@@ -19,3 +19,11 @@
 .fa-briefcase{
     cursor: pointer;
 }
+
+.descrizione{
+    display: inline-block;
+    width: 300px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}

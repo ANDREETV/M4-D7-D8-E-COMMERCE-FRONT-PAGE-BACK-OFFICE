@@ -33,3 +33,12 @@ header {
   align-items: center;
   height: 10vh;
 }
+
+
+.descrizione{
+  display: inline-block;
+  width: 50px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
